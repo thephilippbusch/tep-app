@@ -1,3 +1,3 @@
-# Soiree App
+# Iade App
 
-Main repository for the Soiree Application
+Main repository for the Iade Application
