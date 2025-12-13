@@ -1,0 +1,21 @@
+language: typescript
+layer: application
+stack: frontend
+
+toolchain:
+  default: bun
+
+tags:
+  - react-router
+  - docker
+
+project:
+  name: celebry-web
+  description: "The web application for the Celebry Event Planner built via React Router (Remix)"
+  maintainers:
+    - philippleonbusch@gmail.com
+
+tasks:
+  docker/build:
+    deps:
+      - build
