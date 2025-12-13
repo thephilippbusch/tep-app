@@ -1,3 +1,3 @@
-# Iade App
+# Celebry App
 
-Main repository for the Iade Application
+Main repository for the Celebry Application
