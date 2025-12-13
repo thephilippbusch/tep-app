@@ -1,0 +1,22 @@
+services:
+  celebry-db:
+    container_name: celebry-db
+    image: postgres:18.1-alpine
+    restart: unless-stopped
+    networks:
+      - celebry
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=${CELEBRY_DB_DATABASE}
+      - POSTGRES_USER=${CELEBRY_DB_USER}
+      - POSTGRES_PASSWORD=${CELEBRY_DB_PASSWORD}
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - celebry-data:/var/lib/postgresql/data
+volumes:
+  celebry-data:

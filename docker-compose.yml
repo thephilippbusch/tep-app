@@ -1,0 +1,8 @@
+name: celebry
+
+include:
+  - ./docker/docker-compose.postgres.yaml
+
+networks:
+  celebry:
+    driver: bridge
