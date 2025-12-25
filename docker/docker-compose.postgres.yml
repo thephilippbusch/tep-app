@@ -1,22 +1,22 @@
 services:
-  celebry-db:
-    container_name: celebry-db
+  tep-db:
+    container_name: tep-db
     image: postgres:18.1-alpine
     restart: unless-stopped
     networks:
-      - celebry
+      - tep
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_DB=${CELEBRY_DB_DATABASE}
-      - POSTGRES_USER=${CELEBRY_DB_USER}
-      - POSTGRES_PASSWORD=${CELEBRY_DB_PASSWORD}
+      - POSTGRES_DB=${TEP_DB_DATABASE}
+      - POSTGRES_USER=${TEP_DB_USER}
+      - POSTGRES_PASSWORD=${TEP_DB_PASSWORD}
     healthcheck:
       test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
       interval: 5s
       timeout: 5s
       retries: 5
     volumes:
-      - celebry-data:/var/lib/postgresql/data
+      - tep-data:/var/lib/postgresql/data
 volumes:
-  celebry-data:
+  tep-data:

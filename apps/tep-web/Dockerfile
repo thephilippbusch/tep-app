@@ -20,7 +20,7 @@ FROM base AS skeleton
 
 # Copy entire repository and scaffold
 COPY . .
-RUN moon docker scaffold celebry-web
+RUN moon docker scaffold tep-web
 
 #### BUILD STAGE
 #### Builds the project.
@@ -40,7 +40,7 @@ RUN moon docker setup
 COPY --from=skeleton /app/.moon/docker/sources .
 
 # Build the project
-RUN moon run celebry-web:build
+RUN moon run tep-web:build
 
 # Prune extraneous dependencies
 RUN moon docker prune
@@ -54,5 +54,5 @@ FROM base AS start
 COPY --from=build /root/.proto /root/.proto
 COPY --from=build /app /app
 
-CMD ["moon", "run", "celebry-web:start"]
+CMD ["moon", "run", "tep-web:start"]
 

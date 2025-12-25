@@ -1,7 +1,7 @@
 {
 	"$schema": "https://www.schemastore.org/package.json",
-	"name": "celebry-web",
-	"description": "The web application for the Celebry Event Planner built via React Router (Remix)",
+	"name": "tep-web",
+	"description": "The web application for TEP built via React Router (Remix)",
 	"private": true,
 	"type": "module",
 	"version": "0.0.0",

@@ -1,8 +1,8 @@
-name: celebry
+name: tep
 
 include:
   - ./docker/docker-compose.postgres.yml
 
 networks:
-  celebry:
+  tep:
     driver: bridge

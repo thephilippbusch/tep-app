@@ -1,6 +1,6 @@
-# Celebry Web
+# TEP Web
 
-The web application for the Celebry Event Planner built via React Router (Remix)
+The web application for TEP (The Event Planner) built via React Router (Remix)
 
 ## Getting Started
 
@@ -14,10 +14,10 @@ bun install
 
 ### Development
 
-Start the development server with HMR:
+Start the development server with HMR (from repository root):
 
 ```bash
-moon iade-web:dev
+moon tep-web:dev
 ```
 
 Your application will be available at `http://localhost:3000`.
@@ -27,19 +27,26 @@ Your application will be available at `http://localhost:3000`.
 Create a production build:
 
 ```bash
-moon iade-web:build
+moon tep-web:build
 ```
 
 ## Docker
 
 To build and run using Docker:
 
-```bash
-moon iade-web:docker/build
+🚧🚧🚧 WIP 🚧🚧🚧
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
+<!-- ```bash -->
+
+<!-- moon tep-web:docker/build -->
+
+<!---->
+
+<!-- # Run the container -->
+
+<!-- docker run -p 3000:3000 my-app -->
+
+<!-- ``` -->
 
 ## Styling
 

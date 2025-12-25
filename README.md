@@ -1,3 +1,3 @@
-# Celebry App
+# TEP App
 
-Main repository for the Celebry Application
+Main repository for the TEP (The Event Planner) Application

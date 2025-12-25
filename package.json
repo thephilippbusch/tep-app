@@ -1,7 +1,7 @@
 {
 	"$schema": "https://www.schemastore.org/package.json",
-	"name": "celebry-app",
-	"description": "Monorepository for the Celebry Application",
+	"name": "tep-app",
+	"description": "Monorepository for the TEP Application",
 	"workspaces": [
 		"apps/*",
 		"pkgs/*"
