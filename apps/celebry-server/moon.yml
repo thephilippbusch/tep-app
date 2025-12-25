@@ -2,6 +2,9 @@ language: rust
 layer: application
 stack: backend
 
+tags:
+  - "sea"
+
 project:
   name: celebry-server
   description: "The backend gRPC server for the Celebry Event Planner Application"

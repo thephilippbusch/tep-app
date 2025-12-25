@@ -1,7 +1,7 @@
 name: celebry
 
 include:
-  - ./docker/docker-compose.postgres.yaml
+  - ./docker/docker-compose.postgres.yml
 
 networks:
   celebry:

@@ -1,7 +1,15 @@
-[package]
-name = "celebry-server"
-version = "0.0.0"
-
 [dependencies]
-diesel = { version = "2.3.4", features = ["postgres"] }
+migration = { path = "migration" }
 dotenvy = "0.15.7"
+tokio = "1.48.0"
+sea-orm = { version = "1.1.19", features = ["sqlx-postgres", "runtime-tokio-rustls", "macros"]}
+
+[workspaces]
+members = [".", "migration"]
+
+[package]
+edition = "2024"
+publish = false
+name = "celebry"
+rust-version = "1.92.0"
+version = "0.0.0"

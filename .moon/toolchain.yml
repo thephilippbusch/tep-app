@@ -8,8 +8,5 @@ typescript:
   includeSharedTypes: true
   syncProjectReferences: false
 
-unstable_rust:
-  version: 1.91.1
-  syncToolchainConfig: true
-  addMsrvConstraint: true
-
+rust:
+  version: 1.92.0
