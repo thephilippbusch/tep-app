@@ -1,6 +1,7 @@
 #### BASE STAGE
 #### Installs moon.
 
+# Make sure the bun version matches the one in the .prototools file in the project root
 FROM oven/bun:1.3.4-alpine AS base
 WORKDIR /app
 
