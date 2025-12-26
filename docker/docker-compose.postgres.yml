@@ -1,0 +1,22 @@
+services:
+  tep-db:
+    container_name: tep-db
+    image: postgres:18.1-alpine
+    restart: unless-stopped
+    networks:
+      - tep
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=${TEP_DB_DATABASE}
+      - POSTGRES_USER=${TEP_DB_USER}
+      - POSTGRES_PASSWORD=${TEP_DB_PASSWORD}
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - tep-data:/var/lib/postgresql/data
+volumes:
+  tep-data:

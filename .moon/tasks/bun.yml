@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://moonrepo.dev/schemas/tasks.json
+$schema: https://moonrepo.dev/schemas/tasks.json
+fileGroups:
+  typescript:
+    - "**/*.{ts,tsx}"
+    - "!**/dist/**/*"
+    - "!**/build/**/*"
+    - tsconfig.json
+  lintable:
+    - "**/*.{ts,tsx,js,jsx,json}"
+    - "!**/dist/**/*"
+    - "!**/build/**/*"
+tasks:
+  typecheck:
+    command: bun --bun tsc --noEmit --pretty
+    inputs:
+      - "@group(typescript)"
+    deps:
+      - ^:build
+      - ^:typecheck
+  lint:
+    command: biome check $projectSource --config-path=$workspaceRoot/biome.json
+    inputs:
+      - "@group(lintable)"
+      - /biome.json
+    options:
+      runFromWorkspaceRoot: true
+  lint-fix:
+    command: biome check $projectSource --write --config-path=$workspaceRoot/biome.json
+    inputs:
+      - "@group(lintable)"
+      - /biome.json
+    options:
+      runFromWorkspaceRoot: true
+      runInCI: false

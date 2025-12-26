@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=https://moonrepo.dev/schemas/tasks.json
+$schema: https://moonrepo.dev/schemas/tasks.json
+fileGroups:
+  sources:
+    - app/**/*
+  config:
+    - "*.config.ts"
+    - "*.json"
+  types:
+    - .react-router/**/*
+  output:
+    - build/**/*
+tasks:
+  watch:
+    command: noop
+    local: true
+    deps:
+      - ^:dev
+  dev:
+    command:
+      - bun
+      - --bun
+      - react-router
+      - dev
+    local: true
+  build:
+    command:
+      - bun
+      - --bun
+      - react-router
+      - build
+    inputs:
+      - "@globs(sources)"
+      - "@globs(config)"
+    outputs:
+      - "@globs(output)"
+    deps:
+      - ^:build
+      - ~:lint
+      - ~:typecheck
+  start:
+    command:
+      - bun
+      - --bun
+      - react-router-serve
+      - ./build/server/index.js
+    local: true
+  typecheck:
+    script: bun --bun react-router typegen && bun --bun tsc
+    inputs:
+      - "@globs(sources)"
+      - "@globs(config)"
+    outputs:
+      - "@globs(types)"
+    deps:
+      - ^:build
+      - ^:typecheck

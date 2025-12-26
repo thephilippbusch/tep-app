@@ -1,0 +1,8 @@
+name: tep
+
+include:
+  - ./docker/docker-compose.postgres.yml
+
+networks:
+  tep:
+    driver: bridge

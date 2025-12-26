@@ -1,0 +1,10 @@
+language: rust
+layer: application
+stack: backend
+
+tags:
+  - "sea"
+
+project:
+  name: tep-server
+  description: "The backend gRPC server for TEP"

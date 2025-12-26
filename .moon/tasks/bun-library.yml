@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=https://moonrepo.dev/schemas/tasks.json
+$schema: https://moonrepo.dev/schemas/tasks.json
+fileGroups:
+  sources:
+    - src/**/*
+  output:
+    - dist/**/*
+  config:
+    - package.json
+    - tsconfig.json
+    - build.config.ts
+tasks:
+  dev:
+    command: noop
+    local: true
+    deps:
+      - ^:dev
+      - ~:watch
+  watch:
+    command: bun --bun unbuild --stub
+    outputs:
+      - "@group(output)"
+    local: true
+  build:
+    command: bun --bun unbuild
+    inputs:
+      - "@globs(sources)"
+      - "@group(config)"
+    outputs:
+      - "@group(output)"
+    deps:
+      - ^:build
+      - ~:typecheck
+      - ~:lint
+  clean:
+    command: rm -rf dist
+    options:
+      cache: false
+      runInCI: false

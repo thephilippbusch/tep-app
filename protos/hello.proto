@@ -1,0 +1,21 @@
+syntax = "proto3";
+ 
+package events;
+ 
+message GetEventRequest {
+  string id = 1;
+}
+
+message CreateEventRequest {
+  string name = 1;
+  string description = 1;
+}
+ 
+message EventResponse {
+  string message = 1;
+}
+ 
+service EventService {
+  rpc GetEvent (GetEventRequest) returns (EventResponse);
+  rpc CreateEvent (CreateEventRequest) returns (EventResponse);
+}

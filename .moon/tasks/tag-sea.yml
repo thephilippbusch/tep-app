@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=https://moonrepo.dev/schemas/tasks.json
+$schema: https://moonrepo.dev/schemas/tasks.json
+tasks:
+  sea/mig/gen:
+    command:
+      - sea-orm-cli
+      - migrate
+      - generate
+    local: true
+  sea/mig/up:
+    command:
+      - sea-orm-cli
+      - migrate
+      - up
+    options:
+      cache: false
+  sea/mig/down:
+    command:
+      - sea-orm-cli
+      - migrate
+      - down
+    options:
+      cache: false
+  sea/mig/status:
+    command:
+      - sea-orm-cli
+      - migrate
+      - status
+    options:
+      cache: false
+  sea/mig/fresh:
+    command:
+      - sea-orm-cli
+      - migrate
+      - fresh
+    local: true
+  sea/mig/refresh:
+    command:
+      - sea-orm-cli
+      - migrate
+      - refresh
+    local: true
+  sea/mig/reset:
+    command:
+      - sea-orm-cli
+      - migrate
+      - reset
+    local: true
+  sea/ent/gen:
+    command:
+      - sea-orm-cli
+      - generate
+      - entity
+    local: true
